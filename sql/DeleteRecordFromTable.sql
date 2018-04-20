@@ -1,0 +1,3 @@
+DELETE DimDate
+WHERE DateId = 20150301
+GO
