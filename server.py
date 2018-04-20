@@ -25,7 +25,7 @@ class Tracks(object):
 class Employee_Name(Resource):
     def get(self, employee_id):
         conn = db_connection.connect()
-        query = conn.execute("select * from employees where EmployeeId = %d", %int(employee_id))
+        query = conn.execute("select * from employees where EmployeeId = %d" %int(employee_id))
         result = { 'data': [dict( zip( tuple( query.keys(), i))) for i in query.cursor] }
 
 api.add_resource(Employee, '/employees')
@@ -33,4 +33,4 @@ api.add_resource(Tracks, '/employees')
 api.add_resource(Employee_Name, '/employees/<employee_id>')
 
 if __name__ == '__main__':
-    main.run(port = '1337')
+    app.run(port = '1337')
