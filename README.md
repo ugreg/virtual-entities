@@ -16,6 +16,13 @@ flask run
 > If you run into any issues running the code, debug the script using `python -m pdb .\server.py`
 
 # References
+
+#### C Sharp
+- [Getting started with OData in ASP.NET Core
+](https://dotnetthoughts.net/getting-started-with-odata-in-aspnet-core/)
+- [Microsoft.AspNetCore.OData](https://www.nuget.org/packages/Microsoft.AspNetCore.OData/)
+
+#### Python
 - Modified from [Building a Basic RestFul API in Python
 ](https://www.codementor.io/sagaragarwal94/building-a-basic-restful-api-in-python-58k02xsiq) by [Sagar Chand Agarwal](https://github.com/sagaragarwal94)
 
