@@ -1,16 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace VirutalEntityDemo.Models
 {
     public class WebOrders
     {
+        [Key]
         private Guid _id;
+        [Required]
         private DateTime _dateTime;
+        [Required]
         private Guid _customerId;
+        [Required]
         private float _total;
+        [Required]
         private float _tax;
 
         public WebOrders() { }
