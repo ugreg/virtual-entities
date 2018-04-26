@@ -6,19 +6,19 @@ using VirutalEntityDemo.Models;
 
 namespace VirutalEntityDemo.Controllers
 {
-    public class WebOrdersController
+    public class WebOrderController
     {
-        private readonly WebOrdersDbContext _webOrdersDbContext;
+        private readonly WebOrderDbContext _webOrderDbContext;
 
-        public WebOrdersController(WebOrdersDbContext ctx)
+        public WebOrderController(WebOrderDbContext ctx)
         {
-            _webOrdersDbContext = ctx;
+            _webOrderDbContext = ctx;
         }
 
         [EnableQuery]
         public IQueryable Get()
         {
-            return _webOrdersDbContext.WebOrders.AsQueryable();
+            return _webOrderDbContext.WebOrder.AsQueryable();
         }
     }
 }

@@ -2,12 +2,12 @@
 
 namespace VirutalEntityDemo.Models
 {
-    public class WebOrdersDbContext : DbContext
+    public class WebOrderDbContext : DbContext
     {
-        public WebOrdersDbContext(DbContextOptions options) : base(options) { }
+        public WebOrderDbContext(DbContextOptionsBuilder optionsBuilder) { }
 
-        protected WebOrdersDbContext() { }
+        protected WebOrderDbContext() { }
 
-        public DbSet<WebOrders> WebOrders { get; set; }
+        public DbSet<WebOrder> WebOrder { get; set; }
     }
 }

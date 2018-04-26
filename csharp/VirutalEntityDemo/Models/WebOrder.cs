@@ -5,37 +5,33 @@ using Microsoft.EntityFrameworkCore;
 
 namespace VirutalEntityDemo.Models
 {
-    public class WebOrders
-    {
-        [Key]
-        private Guid _id;
-        [Required]
+    public class WebOrder
+    {                       
         private DateTime _dateTime;
-        [Required]
-        private Guid _customerId;
-        [Required]
         private float _total;
-        [Required]
         private float _tax;
 
-        public WebOrders() { }
+        [Key]
+        public Guid Id { get; }
 
-        public Guid Id { get { return _id; } }
-
+        [Required]
         public DateTime DateTime
         {
             get { return _dateTime; }
             set { _dateTime = value; }
         }
 
-        public Guid CusomterId { get { return _customerId; } }
+        [Required]
+        public Guid CusomterId { get; }
 
+        [Required]
         public float Total
         {
             get { return _total; }
             set { _total = value; }
         }
 
+        [Required]
         public float Tax
         {
             get { return _tax; }

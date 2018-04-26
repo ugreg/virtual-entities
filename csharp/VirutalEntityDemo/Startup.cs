@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNet.OData.Builder;
+using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+
+using VirutalEntityDemo.Models;
 
 namespace VirutalEntityDemo
 {
@@ -23,18 +22,26 @@ namespace VirutalEntityDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<WebOrderDbContext>(optionsBuilder =>
+            {
+                optionsBuilder.UseSqlite("weborders.db");
+            });
+
+            services.AddOData();
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            var builder = new ODataConventionModelBuilder();
+            var entitySet = builder.EntitySet<WebOrder>(nameof(WebOrder));
+            entitySet.EntityType.HasKey(entity => entity.Id);
 
-            app.UseMvc();
+            app.UseMvc(routeBuilder =>
+            {
+                routeBuilder.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
+            });
         }
     }
 }
