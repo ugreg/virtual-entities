@@ -6,6 +6,12 @@ Dynamics 365 Virtual Entity demo
 
 # Run
 
+#### C Sharp
+*in porgress*. . .
+Download the project and click run.
+
+#### Python
+*in porgress*. . .
 ```python
 set FLASK_APP=server.py
 flask run
@@ -18,9 +24,9 @@ flask run
 # References
 
 #### C Sharp
-- [Getting started with OData in ASP.NET Core
+- Modified from [Getting started with OData in ASP.NET Core
 ](https://dotnetthoughts.net/getting-started-with-odata-in-aspnet-core/)
-- [Microsoft.AspNetCore.OData](https://www.nuget.org/packages/Microsoft.AspNetCore.OData/)
+- Uses[Microsoft.AspNetCore.OData](https://www.nuget.org/packages/Microsoft.AspNetCore.OData/) and other NuGet libraries.
 
 #### Python
 - Modified from [Building a Basic RestFul API in Python
