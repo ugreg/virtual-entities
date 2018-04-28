@@ -4,9 +4,9 @@ namespace VirutalEntityDemo.Models
 {
     public class WebOrderDbContext : DbContext
     {
-        public WebOrderDbContext(DbContextOptionsBuilder optionsBuilder) { }
-
         protected WebOrderDbContext() { }
+
+        public WebOrderDbContext(DbContextOptionsBuilder optionsBuilder) { }
 
         public DbSet<WebOrder> WebOrder { get; set; }
     }

@@ -24,7 +24,7 @@ namespace VirutalEntityDemo
         {
             services.AddDbContext<WebOrderDbContext>(optionsBuilder =>
             {
-                optionsBuilder.UseSqlite("weborders.db");
+                optionsBuilder.UseSqlite("WebOrder.db");
             });
 
             services.AddOData();
@@ -35,7 +35,7 @@ namespace VirutalEntityDemo
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             var builder = new ODataConventionModelBuilder();
-            var entitySet = builder.EntitySet<WebOrder>(nameof(WebOrder));
+            var entitySet = builder.EntitySet<WebOrder>("WebOrder");
             entitySet.EntityType.HasKey(entity => entity.Id);
 
             app.UseMvc(routeBuilder =>

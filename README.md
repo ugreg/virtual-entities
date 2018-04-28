@@ -24,6 +24,7 @@ flask run
 # References
 
 #### C Sharp
+- [Creating an OData v4 API with ASP.NET Core 2.0](http://azurecoder.net/2018/02/19/creating-odata-api-asp-net-core-2-0/)
 - Modified from [Getting started with OData in ASP.NET Core
 ](https://dotnetthoughts.net/getting-started-with-odata-in-aspnet-core/)
 - Uses[Microsoft.AspNetCore.OData](https://www.nuget.org/packages/Microsoft.AspNetCore.OData/) and other NuGet libraries.
