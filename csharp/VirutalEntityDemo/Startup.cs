@@ -20,38 +20,39 @@ namespace VirutalEntityDemo
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<WebOrderDbContext>(optionsBuilder =>
-            {
-                optionsBuilder.UseSqlite("Data Source=WebOrder.db");
-            });
-
-            services.AddOData();
-            services.AddMvc().AddJsonOptions(options =>
-            {
-                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            });
-        }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, WebOrderModelBuilder webOrderModelBuilder)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            var builder = new ODataConventionModelBuilder();
-            var entitySet = builder.EntitySet<WebOrder>("WebOrder");
-            entitySet.EntityType.HasKey(entity => entity.Id);
+            // var builder = new ODataConventionModelBuilder();
+            // var entitySet = builder.EntitySet<WebOrder>("WebOrder");
+            // entitySet.EntityType.HasKey(entity => entity.Id);
 
             app.UseMvc(routeBuilder =>
             {
-                routeBuilder.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
+                routeBuilder.MapODataServiceRoute("ODataRoutes", "odata", webOrderModelBuilder.GetEdmModel(app.ApplicationServices));
             });
-        }        
+        }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContext<WebOrderDbContext>(dbContextOptionsBuilder =>
+            {
+                dbContextOptionsBuilder.UseSqlite("Data Source=WebOrder.db");
+            });
+
+            services.AddOData();
+            services.AddTransient<WebOrderModelBuilder>();
+            services.AddMvc().AddJsonOptions(mvcJsonOptions =>
+            {
+                mvcJsonOptions.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                mvcJsonOptions.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
+        }               
     }
 }
