@@ -6,14 +6,14 @@ namespace VirutalEntityDemo.Models
     public class WebOrder
     {
         private Guid _id;           // sqlite type BLOB
-        private DateTime _dateTime; // sqlite type TEXT
+        private string _dateTime;   // sqlite type TEXT
         private Guid _customerId;   // sqlite type BLOB
         private float _total;       // sqlite type REAL
         private float _tax;         // sqlite type REAL
         private string _status;     // sqlite type TEXT
         private string _name;       // sqlite type TEXT
 
-        public WebOrder(Guid id, DateTime dateTime, Guid customerId, float total, float tax)
+        public WebOrder(Guid id, string dateTime, Guid customerId, float total, float tax)
         {
             _id = id;
             _dateTime = dateTime;
@@ -30,7 +30,7 @@ namespace VirutalEntityDemo.Models
         }
 
         [Required]
-        public DateTime DateTime { get => _dateTime;   set => _dateTime = value; }
+        public string DateTime { get => _dateTime;   set => _dateTime = value; }
         [Required]
         public Guid CusomterId   { get => _customerId; set => _customerId = value; }
         [Required]
