@@ -44,6 +44,9 @@ namespace VirutalEntityDemo
             {
                 webOrders.Add(new WebOrder(Guid.NewGuid(), DateTime.Now.ToString(), Guid.NewGuid(), NextFloat(), NextFloat(), "Greg", "Degruy"));
             }
+
+            context.WebOrder.AddRange(webOrders);
+            context.SaveChanges();
         }
         private static float NextFloat()
         {
