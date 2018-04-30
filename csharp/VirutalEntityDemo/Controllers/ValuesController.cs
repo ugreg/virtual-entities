@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNet.OData;
 
 using VirutalEntityDemo.Models;
+
 
 namespace VirutalEntityDemo.Controllers
 {
@@ -13,8 +16,8 @@ namespace VirutalEntityDemo.Controllers
 
         public ValuesController(WebOrderDbContext webOrderDbContext) => this._webOrderDbContext = webOrderDbContext;
 
-        // GET api/weborders
-        [HttpGet]
-        public IEnumerable<WebOrder> Get() => _webOrderDbContext.WebOrder; 
+        // GET odata/weborders
+        [EnableQuery]
+        public IQueryable<WebOrder> Get() => _webOrderDbContext.WebOrder.AsQueryable(); 
     }
 }

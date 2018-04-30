@@ -15,6 +15,7 @@ namespace VirutalEntityDemo
 
             builder.EntitySet<WebOrder>(nameof(WebOrder))
                 .EntityType
+                .HasKey(entity => entity.Id)
                 .Filter()   // Allow $filter
                 .Count()    // Allow $count
                 .Expand()   // Allow $expand 
