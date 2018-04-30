@@ -30,7 +30,7 @@ namespace VirutalEntityDemo.Models
         }
 
         [Required]
-        public string DateTime { get => _dateTime;   set => _dateTime = value; }
+        public string DateTime   { get => _dateTime;   set => _dateTime = value; }
         [Required]
         public Guid CusomterId   { get => _customerId; set => _customerId = value; }
         [Required]

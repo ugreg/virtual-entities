@@ -14,6 +14,7 @@ namespace VirutalEntityDemo
 
         private static void Seed(WebOrderDbContext context)
         {
+            context.Database.Migrate();
             AddWebOrders(context);
         }        
 

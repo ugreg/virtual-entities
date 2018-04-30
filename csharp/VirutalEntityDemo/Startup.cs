@@ -24,7 +24,7 @@ namespace VirutalEntityDemo
         {
             services.AddDbContext<WebOrderDbContext>(optionsBuilder =>
             {
-                optionsBuilder.UseSqlite("WebOrder.db");
+                optionsBuilder.UseSqlite("Data Source=WebOrder.db");
             });
 
             services.AddOData();
