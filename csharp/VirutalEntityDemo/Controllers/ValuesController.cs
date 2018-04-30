@@ -6,7 +6,7 @@ using VirutalEntityDemo.Models;
 namespace VirutalEntityDemo.Controllers
 {
     [Produces("application/json")]
-    [Route("api/weborders")]
+    [Route("api/WebOrders")]
     public class ValuesController : Controller
     {
         private readonly WebOrderDbContext _webOrderDbContext;
