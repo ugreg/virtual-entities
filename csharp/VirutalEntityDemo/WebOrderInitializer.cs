@@ -40,15 +40,15 @@ namespace VirutalEntityDemo
             webOrders = new List<WebOrder>();
             for (int i = 0; i < 3; i++)
             {
-                webOrders.Add(new WebOrder(Guid.NewGuid(), DateTime.Now.ToString(), Guid.NewGuid(), NextFloat(), NextFloat(), "Bill", "G"));
+                webOrders.Add(new WebOrder(Guid.NewGuid(), DateTime.Now.ToString(), Guid.NewGuid(), NextDouble(), NextDouble(), "Bill", "G"));
             }
 
             context.WebOrder.AddRange(webOrders);
             context.SaveChanges();
         }
-        private static float NextFloat()
+        private static double NextDouble()
         {
-            return (float)Math.Round(new Random().NextDouble() * 100.0f, 2);
+            return (double)Math.Round(new Random().NextDouble() * 100.0, 2);
         }
     }
 }
