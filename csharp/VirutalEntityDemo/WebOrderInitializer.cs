@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Microsoft.EntityFrameworkCore;
-
 using VirutalEntityDemo.Models;
 
 namespace VirutalEntityDemo
@@ -42,7 +40,7 @@ namespace VirutalEntityDemo
             webOrders = new List<WebOrder>();
             for (int i = 0; i < 3; i++)
             {
-                webOrders.Add(new WebOrder(Guid.NewGuid(), DateTime.Now.ToString(), Guid.NewGuid(), NextFloat(), NextFloat(), "Greg", "Degruy"));
+                webOrders.Add(new WebOrder(Guid.NewGuid(), DateTime.Now.ToString(), Guid.NewGuid(), NextFloat(), NextFloat(), "Bill", "G"));
             }
 
             context.WebOrder.AddRange(webOrders);
