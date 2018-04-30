@@ -13,13 +13,15 @@ namespace VirutalEntityDemo.Models
         private string _status;     // sqlite type TEXT
         private string _name;       // sqlite type TEXT
 
-        public WebOrder(Guid id, string dateTime, Guid customerId, float total, float tax)
+        public WebOrder(Guid id, string dateTime, Guid customerId, float total, float tax, string name, string status)
         {
             _id = id;
             _dateTime = dateTime;
             _customerId = customerId;
             _total = total;
             _tax = tax;
+            _name = name;
+            _status = status;
         }
 
         [Key]

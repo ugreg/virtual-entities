@@ -42,7 +42,7 @@ namespace VirutalEntityDemo
             webOrders = new List<WebOrder>();
             for (int i = 0; i < 3; i++)
             {
-                webOrders.Add(new WebOrder(Guid.NewGuid(), DateTime.Now.ToString(), Guid.NewGuid(), NextFloat(), NextFloat()));
+                webOrders.Add(new WebOrder(Guid.NewGuid(), DateTime.Now.ToString(), Guid.NewGuid(), NextFloat(), NextFloat(), "Greg", "Degruy"));
             }
         }
         private static float NextFloat()
