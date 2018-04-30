@@ -1,18 +1,27 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-using Microsoft.EntityFrameworkCore;
-
 namespace VirutalEntityDemo.Models
 {
     public class WebOrder
-    {                       
+    {
+        private Guid _id;
         private DateTime _dateTime;
+        private Guid _customerId;
         private float _total;
         private float _tax;
 
+        public WebOrder(Guid id, DateTime dateTime, Guid customerId, float total, float tax)
+        {
+            _id = id;
+            _dateTime = dateTime;
+            _customerId = customerId;
+            _total = total;
+            _tax = tax;
+        }
+
         [Key]
-        public Guid Id { get; }
+        public Guid Id { get; private set; }
 
         [Required]
         public DateTime DateTime
@@ -22,7 +31,7 @@ namespace VirutalEntityDemo.Models
         }
 
         [Required]
-        public Guid CusomterId { get; }
+        public Guid CusomterId { get; private set; }
 
         [Required]
         public float Total
