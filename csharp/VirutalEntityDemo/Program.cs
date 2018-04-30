@@ -16,6 +16,8 @@ namespace VirutalEntityDemo
             {
                 var services = scope.ServiceProvider;
                 var context = services.GetRequiredService<WebOrderDbContext>();
+
+                WebOrderInitializer.Intialize(context);
             }
 
             host.Run();

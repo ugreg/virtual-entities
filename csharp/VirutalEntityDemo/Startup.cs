@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using VirutalEntityDemo.Models;
 
 namespace VirutalEntityDemo
@@ -28,12 +29,21 @@ namespace VirutalEntityDemo
             });
 
             services.AddOData();
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
             var builder = new ODataConventionModelBuilder();
             var entitySet = builder.EntitySet<WebOrder>("WebOrder");
             entitySet.EntityType.HasKey(entity => entity.Id);
@@ -42,6 +52,6 @@ namespace VirutalEntityDemo
             {
                 routeBuilder.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
             });
-        }
+        }        
     }
 }

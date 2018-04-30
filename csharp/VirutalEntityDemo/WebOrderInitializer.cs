@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using Microsoft.EntityFrameworkCore;
+
 using VirutalEntityDemo.Models;
 
 namespace VirutalEntityDemo
@@ -24,8 +26,15 @@ namespace VirutalEntityDemo
                 lock (_lock)
                 {
                     if (_initialized == true) { return; }
+                    InitializeData(context);
                 }
             }
+        }
+
+        private static void InitializeData(WebOrderDbContext context)
+        {
+            // context.Database.Migrate();
+            Seed(context);
         }
 
         private static void AddWebOrders(WebOrderDbContext context)
