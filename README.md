@@ -8,7 +8,7 @@ Dynamics 365 Virtual Entity demo
 
 #### C Sharp
 *in porgress*. . .
-Download the project and click run.
+Download the project and click run. Even works on Mac!
 
 #### Python
 *in porgress*. . .
@@ -20,6 +20,23 @@ flask run
 > INFO
 >
 > If you run into any issues running the code, debug the script using `python -m pdb .\server.py`
+
+# Deploy Azure
+
+Create resources
+```bash
+az group create -n rg-dynamics-virtual-entities -l 'West US'
+
+```
+
+Deploy REST API with OData.
+
+# Get your own Test Dataset
+
+Used [Mockaroo](https://mockaroo.com/) to generate test data.
+```bash
+curl "https://api.mockaroo.com/api/0ad55780?count=100&key=d9e7f2e0" > "WebOrder-Virtual-Entity.csv"
+```
 
 # References
 

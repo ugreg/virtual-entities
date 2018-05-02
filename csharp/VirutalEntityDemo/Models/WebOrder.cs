@@ -5,16 +5,17 @@ namespace VirutalEntityDemo.Models
 {
     public class WebOrder
     {
-        private Guid _id;           // sqlite type BLOB
-        private string _date;       // sqlite type TEXT
-        private Guid _customerId;   // sqlite type BLOB
+        private Guid _id;            // sqlite type BLOB
+        private string _date;        // sqlite type TEXT
+        private Guid _customerId;    // sqlite type BLOB
         private double _total;       // sqlite type REAL
         private double _tax;         // sqlite type REAL
-        private string _status;     // sqlite type TEXT
-        private string _name;       // sqlite type TEXT
+        private string _status;      // sqlite type TEXT
+        private string _name;        // sqlite type TEXT
 
         public WebOrder() { }
-        public WebOrder(Guid id, string date, Guid customerId, double total, double tax, string name, string status)
+        public WebOrder(Guid id, string date, Guid customerId, double total, 
+                        double tax, string name, string status)
         {
             _id = id;
             _date = date;
