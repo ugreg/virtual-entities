@@ -24,9 +24,24 @@ flask run
 # Deploy to Azure
 
 Create resources
-```bash
-az group create -n rg-dynamics-virtual-entities -l 'West US'
+```
+export rg="rg-virtual-entities"
+az group create -n $rg -l 'West US'
 
+```
+
+```bash
+export server="server-dynamics-unit-test"
+export db="db--dynamics-unit-test"
+az sql server create --admin-password 'Password!' --admin-user admin --location 'West US' -n $server -g $rg
+
+# A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall.
+# To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the startip and 255.255.255.255 as andip.
+export startip="0.0.0.0"
+export endip="255.255.255.255"
+az sql server firewall-rule create -g $rg --server $server -n AllowAnyIp --start-ip-address $startip --end-ip-address $endip
+
+az sql db create -g $rg --server $server -n $db
 ```
 
 Deploy REST API with OData.
