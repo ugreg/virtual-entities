@@ -21,7 +21,7 @@ flask run
 >
 > If you run into any issues running the code, debug the script using `python -m pdb .\server.py`
 
-# Deploy Azure
+# Deploy to Azure
 
 Create resources
 ```bash
@@ -31,7 +31,7 @@ az group create -n rg-dynamics-virtual-entities -l 'West US'
 
 Deploy REST API with OData.
 
-# Get your own Test Dataset
+# Get your own test Dataset
 
 Used [Mockaroo](https://mockaroo.com/) to generate test data.
 ```bash
