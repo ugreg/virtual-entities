@@ -23,13 +23,13 @@ flask run
 
 # Deploy to Azure
 
-Create resources
+Create resource group
 ```
 export rg="rg-virtual-entities"
 az group create -n $rg -l 'West US'
 
 ```
-
+Create resources
 ```bash
 export server="server-dynamics-unit-test"
 export db="db--dynamics-unit-test"
@@ -48,7 +48,7 @@ Deploy REST API with OData.
 
 # Get your own test Dataset
 
-Used [Mockaroo](https://mockaroo.com/) to generate test data.
+Used [Mockaroo](https://mockaroo.com/) to generate test data. You can use curl to test and get a response.
 ```bash
 curl "https://api.mockaroo.com/api/0ad55780?count=100&key=d9e7f2e0" > "WebOrder-Virtual-Entity.csv"
 ```
