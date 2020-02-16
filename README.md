@@ -1,8 +1,12 @@
-<img src="imgs/md/build-apps.png">
+<p align="center"><img src="img/red.png"></p>
 
 # Virtual Entities
----
-Dynamics 365 Virtual Entity demo
+Dynamics 365 Virtual Entity demo.
+
+| <h1 align="center">Virtual Entity</h1><p align="center"><img src="img/p1.png" height="24"></p>
+| :------------------------ |
+| A virtual entity is a definition of an entity in the Common Data Service platform metadata without the associated physical tables for entity instances created in the Common Data Service database. Instead during runtime, when an entity instance is required, its state is dynamically retrieved from the associated external system. |
+
 
 # Run
 
